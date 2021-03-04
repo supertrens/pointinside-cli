@@ -1,0 +1,26 @@
+{
+  "name": "pointinside",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supertrens/pointinside-cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/supertrens/pointinside-cli/issues"
+  },
+  "homepage": "https://github.com/supertrens/pointinside-cli#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "boxen": "^5.0.0",
+    "chalk": "^4.1.0",
+    "inquirer": "^8.0.0"
+  }
+}
