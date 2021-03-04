@@ -23,6 +23,12 @@ function init() {
   loadMenu();
 }
 
+function cleanUp() {
+  logger("Exiting program...");
+  cleanRedisCache();
+  process.exit();
+}
+
 function greeting() {
   const greeting = "Welcome to the pointinside Node / Backend Coding Exercise";
   const boxenOptions = {
@@ -60,12 +66,6 @@ async function continueProgram() {
   if (queryAgain) return loadMenu();
 
   cleanUp();
-}
-
-function cleanUp() {
-  logger("Exiting program...");
-  cleanRedisCache();
-  process.exit();
 }
 
 init();
