@@ -1,5 +1,6 @@
 import redis from "redis";
 import { promisify } from "util";
+import { updateDateToCurrent } from "../utils/helper.js";
 
 const client = redis.createClient(process.env.REDIS_PORT || 31000);
 client.get = promisify(client.get);
@@ -11,6 +12,8 @@ client.on("error", (error) => console.error(error));
 
 /**
  * Check redis to see if we had previously query this given location.
+ * if there is a hit , we spread the currentTime based on the cacheData timezone
+ * to make sure the time is in current time while still avoid the api call,
  * @param key: the location url
  */
 const readQueryInCache = async (key) => {
@@ -21,7 +24,7 @@ const readQueryInCache = async (key) => {
   const parsedData = JSON.parse(data);
 
   // expecting array of object
-  return [parsedData];
+  return [updateDateToCurrent(parsedData)];
 };
 
 /**

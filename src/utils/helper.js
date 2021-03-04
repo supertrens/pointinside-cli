@@ -16,4 +16,13 @@ const buildQuery = (query) => {
   return `${BASE_URL}${query}&format=json`;
 };
 
-export { logger, printResult, buildQuery };
+const updateDateToCurrent = (parsedData) => {
+  return {
+    ...parsedData,
+    formatted: new Date().toLocaleString("en-US", {
+      timeZone: parsedData.zoneName,
+    }),
+  };
+};
+
+export { logger, printResult, buildQuery, updateDateToCurrent };
