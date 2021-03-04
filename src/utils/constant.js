@@ -14,7 +14,7 @@ const MENU_LIST = [
     name: "menu",
     message:
       "Do you want to lookup a timezone by City or Lattitude/Longitude (default)",
-    choices: [BY_CITY, BY_LAT_LNG],
+    choices: [BY_LAT_LNG, BY_CITY],
     default: "Lat & Lng",
   },
 ];

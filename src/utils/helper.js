@@ -6,7 +6,9 @@ const logger = (msg, type = SUCCESS_COLOR) => {
 };
 
 const printResult = (data) => {
-  logger("Result");
+  if (!data) return;
+
+  logger("Result(s)");
   console.table([...data], ["zoneName", "countryName", "formatted"]);
 };
 

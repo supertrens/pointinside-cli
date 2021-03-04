@@ -4,6 +4,8 @@ import inquirer from "inquirer";
 import { logger } from "./utils/helper.js";
 import { BY_CITY, BY_LAT_LNG, MENU_LIST } from "./utils/constant.js";
 
+import { inquiryByCity, inquiryByLatAndLng } from "./queryOptions/index.js";
+
 function init() {
   greeting();
   loadMenu();
@@ -26,15 +28,13 @@ async function loadMenu() {
   const { menu } = await inquirer.prompt(MENU_LIST);
   switch (menu) {
     case BY_CITY:
-      console.log("Look for city");
-      // TODO: inquiryByCity()
+      await inquiryByCity();
       break;
     case BY_LAT_LNG:
-      console.log("Look for lat and lng");
-      // TODO: inquiryByLatAndLng()
+      await inquiryByLatAndLng();
       break;
     default:
-      await inquiryLatLng();
+      await inquiryByLatAndLng();
   }
 }
 
