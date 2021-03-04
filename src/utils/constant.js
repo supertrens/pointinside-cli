@@ -19,4 +19,21 @@ const MENU_LIST = [
   },
 ];
 
-export { SUCCESS_COLOR, ERROR_COLOR, BASE_URL, MENU_LIST, BY_CITY, BY_LAT_LNG };
+const CONTINUE_QUESTION = [
+  {
+    type: "confirm",
+    name: "queryAgain",
+    message: "Do you want to make another search (just hit enter for YES)?",
+    default: true,
+  },
+];
+
+export {
+  SUCCESS_COLOR,
+  ERROR_COLOR,
+  BASE_URL,
+  MENU_LIST,
+  BY_CITY,
+  BY_LAT_LNG,
+  CONTINUE_QUESTION,
+};
