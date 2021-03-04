@@ -9,6 +9,7 @@
 ## Usage
 - git clone https://github.com/supertrens/pointinside-cli.git
 - cd pointinside-cli
+- cp .env-example .env (A default will be used if you don't have a key. Just for demo purpose)
 - docker-compose up -d
 - docker-compose run pointinside
 
