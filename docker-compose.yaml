@@ -4,6 +4,7 @@ services:
     image: "redis:alpine"
   pointinside:
     build: ./
+    env_file: .env
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     depends_on:
