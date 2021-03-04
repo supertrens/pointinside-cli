@@ -16,7 +16,7 @@ client.on("error", (error) => console.error(error));
  * to make sure the time is in current time while still avoid the api call,
  * @param key: the location url
  */
-const readQueryInCache = async (key) => {
+async function readQueryInCache(key) {
   const data = await client.get(key);
 
   if (!data) return;
@@ -25,15 +25,27 @@ const readQueryInCache = async (key) => {
 
   // expecting array of object
   return [updateDateToCurrent(parsedData)];
-};
+}
 
 /**
  * The key is the actual url with the query
  */
-const writeQueryResultInCache = (key, data) => {
+async function writeQueryResultInCache(key, data) {
   const dataString = JSON.stringify(data);
   client.set(key, dataString);
   client.lpush("history", dataString);
-};
+}
 
-export { readQueryInCache, writeQueryResultInCache };
+async function readQueriesHistory() {
+  try {
+    const response = await client.lrange("history", 0, -1);
+    return response.map((query) => {
+      const parsedData = JSON.parse(query);
+      return updateDateToCurrent(parsedData);
+    });
+  } catch (error) {
+    console.log("something went wrong");
+  }
+}
+
+export { readQueryInCache, writeQueryResultInCache, readQueriesHistory };

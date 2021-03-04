@@ -3,7 +3,7 @@ import inquirer from "inquirer";
 import { printResult, logger } from "../utils/helper.js";
 import { makeRequest } from "../utils/networking.js";
 
-export default async function queryByLatAndLng(params) {
+export default async function queryByLatAndLng() {
   const questions = [
     {
       type: "input",

@@ -6,6 +6,7 @@ const BASE_URL = `http://api.timezonedb.com/v2.1/get-time-zone?key=${apiKey}`;
 
 const BY_CITY = "City";
 const BY_LAT_LNG = "Latitude and Longitude";
+const BY_HISTORY = "Previous look-up";
 
 /** Menu */
 const MENU_LIST = [
@@ -14,7 +15,7 @@ const MENU_LIST = [
     name: "menu",
     message:
       "Do you want to lookup a timezone by City or Lattitude/Longitude (default)",
-    choices: [BY_LAT_LNG, BY_CITY],
+    choices: [BY_LAT_LNG, BY_CITY, BY_HISTORY],
     default: "Lat & Lng",
   },
 ];
@@ -35,5 +36,6 @@ export {
   MENU_LIST,
   BY_CITY,
   BY_LAT_LNG,
+  BY_HISTORY,
   CONTINUE_QUESTION,
 };

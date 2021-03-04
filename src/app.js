@@ -5,11 +5,16 @@ import { logger } from "./utils/helper.js";
 import {
   BY_CITY,
   BY_LAT_LNG,
+  BY_HISTORY,
   MENU_LIST,
   CONTINUE_QUESTION,
 } from "./utils/constant.js";
 
-import { inquiryByCity, inquiryByLatAndLng } from "./queryOptions/index.js";
+import {
+  inquiryByCity,
+  inquiryByLatAndLng,
+  inquiryByHistory,
+} from "./queryOptions/index.js";
 
 function init() {
   greeting();
@@ -37,6 +42,9 @@ async function loadMenu() {
       break;
     case BY_LAT_LNG:
       await inquiryByLatAndLng();
+      break;
+    case BY_HISTORY:
+      await inquiryByHistory();
       break;
     default:
       await inquiryByLatAndLng();
