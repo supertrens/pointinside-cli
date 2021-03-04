@@ -2,6 +2,8 @@ import boxen from "boxen";
 import inquirer from "inquirer";
 
 import { logger } from "./utils/helper.js";
+import { cleanRedisCache } from "./lib/redis.js";
+
 import {
   BY_CITY,
   BY_LAT_LNG,
@@ -57,7 +59,12 @@ async function continueProgram() {
   const { queryAgain } = await inquirer.prompt(CONTINUE_QUESTION);
   if (queryAgain) return loadMenu();
 
+  cleanUp();
+}
+
+function cleanUp() {
   logger("Exiting program...");
+  cleanRedisCache();
   process.exit();
 }
 

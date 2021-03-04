@@ -48,4 +48,13 @@ async function readQueriesHistory() {
   }
 }
 
-export { readQueryInCache, writeQueryResultInCache, readQueriesHistory };
+function cleanRedisCache() {
+  client.flushall();
+}
+
+export {
+  readQueryInCache,
+  writeQueryResultInCache,
+  readQueriesHistory,
+  cleanRedisCache,
+};
