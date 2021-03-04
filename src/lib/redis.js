@@ -2,7 +2,8 @@ import redis from "redis";
 import { promisify } from "util";
 import { updateDateToCurrent } from "../utils/helper.js";
 
-const client = redis.createClient(process.env.REDIS_PORT || 31000);
+const redisServerUrl = "redis://redis-server:6379";
+const client = redis.createClient(redisServerUrl);
 client.get = promisify(client.get);
 client.lrange = promisify(client.lrange);
 
